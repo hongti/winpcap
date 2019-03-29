@@ -37,7 +37,8 @@ int main()
 	}
 
 	printf("Enter the interface number (1-%d):", i);
-	scanf_s("%d", &inum);
+	//scanf_s("%d", &inum);
+	inum = (int)getchar();
 
 	if (inum < 1 || inum > i)
 	{
@@ -84,6 +85,8 @@ void packet_handler(u_char *param, const struct pcap_pkthdr *header, const u_cha
 	struct tm now_time;
 	time_t local_tv_sec;
 
+	//将localtime修改为可使用的localtime_s
+	//学习了回调函数的使用
 	/* 将时间戳转换成可识别的格式 */
 	local_tv_sec = header->ts.tv_sec;
 	localtime_s(&now_time, &local_tv_sec);
