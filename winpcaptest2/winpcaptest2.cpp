@@ -37,9 +37,8 @@ int main()
 	}
 
 	printf("Enter the interface number (1-%d):", i);
-	//scanf_s("%d", &inum);
-	inum = (int)getchar();
-
+	scanf_s("%d", &inum);
+	
 	if (inum < 1 || inum > i)
 	{
 		printf("\nInterface number out of range.\n");
